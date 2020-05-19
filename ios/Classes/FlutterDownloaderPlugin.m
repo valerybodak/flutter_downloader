@@ -274,9 +274,9 @@ static BOOL debug = YES;
 }
 
 - (BOOL)openDocumentWithURL:(NSURL*)url {
-    if (debug) {
+    //if (debug) {
         NSLog(@"try to open file in url: %@", url);
-    }
+    //}
     BOOL result = NO;
 
     tmpDocController = [UIDocumentInteractionController
