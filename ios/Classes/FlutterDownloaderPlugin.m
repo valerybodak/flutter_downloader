@@ -43,6 +43,7 @@
     NSString *_allFilesDownloadedMsg;
     NSMutableArray *_eventQueue;
     int64_t _callbackHandle;
+    UIDocumentInteractionController* tmpDocController;
 }
 
 @property(nonatomic, strong) dispatch_queue_t databaseQueue;
@@ -277,8 +278,10 @@ static BOOL debug = YES;
         NSLog(@"try to open file in url: %@", url);
     }
     BOOL result = NO;
-    UIDocumentInteractionController* tmpDocController = [UIDocumentInteractionController
+
+    tmpDocController = [UIDocumentInteractionController
                                                          interactionControllerWithURL:url];
+
     if (tmpDocController)
     {
         if (debug) {
