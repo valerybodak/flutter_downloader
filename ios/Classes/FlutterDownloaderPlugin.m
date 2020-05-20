@@ -499,9 +499,9 @@ static BOOL debug = YES;
 - (NSDictionary*)loadTaskWithId:(NSString*)taskId
 {
     // check task in memory-cache first
-    if ([_runningTaskById objectForKey:taskId]) {
-        return [_runningTaskById objectForKey:taskId];
-    } else {
+    //if ([_runningTaskById objectForKey:taskId]) {
+        //return [_runningTaskById objectForKey:taskId];
+    //} else {
         NSString *query = [NSString stringWithFormat:@"SELECT * FROM task WHERE task_id = \"%@\" ORDER BY id DESC LIMIT 1", taskId];
         NSArray *records = [[NSArray alloc] initWithArray:[_dbManager loadDataFromDB:query]];
         if (debug) {
@@ -516,7 +516,7 @@ static BOOL debug = YES;
             return task;
         }
         return nil;
-    }
+    //}
 }
 
 - (NSDictionary*) taskDictFromRecordArray:(NSArray*)record
